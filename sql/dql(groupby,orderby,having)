@@ -1,0 +1,109 @@
+-- 1. Group employees by department and count the number of employees in each department
+SELECT department, COUNT(*) AS employee_count
+FROM employees
+GROUP BY department;
+
+-- 2. Group orders by customer and sum the total amount spent by each customer
+SELECT customer_id, SUM(amount) AS total_spent
+FROM orders
+GROUP BY customer_id;
+
+-- 3. Group sales by product and calculate the average sale price for each product
+SELECT product_id, AVG(price) AS average_price
+FROM sales
+GROUP BY product_id;
+
+-- 4. Group students by class and find the highest grade in each class
+SELECT class_id, MAX(grade) AS highest_grade
+FROM students
+GROUP BY class_id;
+
+-- 5. Group purchases by month and sum the total amount spent in each month
+SELECT MONTH(purchase_date) AS month, SUM(amount) AS total_spent
+FROM purchases
+GROUP BY MONTH(purchase_date);
+
+-- 6. Order customers by the total amount they spent in descending order
+SELECT customer_id, SUM(amount) AS total_spent
+FROM orders
+GROUP BY customer_id
+ORDER BY total_spent DESC;
+
+-- 7. Order products by the number of units sold in ascending order
+SELECT product_id, SUM(units_sold) AS total_units_sold
+FROM sales
+GROUP BY product_id
+ORDER BY total_units_sold ASC;
+
+-- 8. Order employees by their average performance rating in descending order
+SELECT employee_id, AVG(rating) AS average_rating
+FROM performance_reviews
+GROUP BY employee_id
+ORDER BY average_rating DESC;
+
+-- 9. Order students by their average grade in ascending order
+SELECT student_id, AVG(grade) AS average_grade
+FROM grades
+GROUP BY student_id
+ORDER BY average_grade ASC;
+
+-- 10. Order products by their total revenue in descending order
+SELECT product_id, SUM(price * units_sold) AS total_revenue
+FROM sales
+GROUP BY product_id
+ORDER BY total_revenue DESC;
+
+-- 11. Group sales by product and show only products with total revenue greater than 1000
+SELECT product_id, SUM(price * units_sold) AS total_revenue
+FROM sales
+GROUP BY product_id
+HAVING total_revenue > 1000;
+
+-- 12. Group employees by department and show only departments with more than 10 employees
+SELECT department, COUNT(*) AS employee_count
+FROM employees
+GROUP BY department
+HAVING employee_count > 10;
+
+-- 13. Group orders by customer and show only customers who spent more than 500
+SELECT customer_id, SUM(amount) AS total_spent
+FROM orders
+GROUP BY customer_id
+HAVING total_spent > 500;
+
+-- 14. Group students by class and show only classes with an average grade greater than 85
+SELECT class_id, AVG(grade) AS average_grade
+FROM students
+GROUP BY class_id
+HAVING average_grade > 85;
+
+-- 15. Group purchases by month and show only months with total spending greater than 2000
+SELECT MONTH(purchase_date) AS month, SUM(amount) AS total_spent
+FROM purchases
+GROUP BY MONTH(purchase_date)
+HAVING total_spent > 2000;
+
+-- 16. Group employees by job title and calculate the average salary for each job title
+SELECT job_title, AVG(salary) AS average_salary
+FROM employees
+GROUP BY job_title;
+
+-- 17. Group orders by product and find the minimum and maximum price for each product
+SELECT product_id, MIN(price) AS min_price, MAX(price) AS max_price
+FROM orders
+GROUP BY product_id;
+
+-- 18. Group customers by region and count the number of customers in each region
+SELECT region, COUNT(*) AS customer_count
+FROM customers
+GROUP BY region;
+
+-- 19. Group sales by date and sum the total sales for each day
+SELECT sales_date, SUM(amount) AS total_sales
+FROM sales
+GROUP BY sales_date;
+
+-- 20. Group books by author and count the number of books written by each author
+SELECT author_id, COUNT(*) AS book_count
+FROM books
+GROUP BY author_id;
